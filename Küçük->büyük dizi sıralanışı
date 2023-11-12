@@ -1,0 +1,33 @@
+package etkinlik8;
+2
+3 public class dizisıralama {
+4
+5 public static void main(String[] args) {
+6
+7 int [] dizi1 = {12,154,85,47,65,25,36,78,22};
+8
+9 System.out.println("Dizideki Degerler : " );
+10 for(int i=0; i<dizi1.length; i++)
+11 {
+12 System.out.print(dizi1[i] +" ");
+13
+14 }
+15 int gecici2;
+16 for(int i=0; i<dizi1.length; i++)
+17 {
+18 for(int j=0; j <dizi1.length-1; j++)
+19 {
+20 if(dizi1[j] > dizi1[j+1])
+21 {
+22 gecici2=dizi1[j];
+23 dizi1[j]=dizi1[j+1];
+24 dizi1[j+1]=gecici2;
+25 }
+26 }
+27 }
+28
+29 System.out.println();
+30 System.out.println("Dizideki Degerlerin Sıralanısı : " );
+31 for(int i=0; i<dizi1.length; i++)
+32
+33 { System.out.print(dizi1[i] +" ");
