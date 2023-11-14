@@ -1,0 +1,31 @@
+public class Circle {
+
+	    
+	    private static final double PI = 3.141519;
+
+	    private double radius;
+	   
+	    public Circle(double radius) {
+	        this.radius = radius;
+	    }
+
+	    public double computeArea() {
+	        return PI * radius * radius;
+	    }
+
+	    public static void main(String[] args) {
+	        
+	        Circle circle1 = new Circle(5);
+	        Circle circle2 = new Circle(10);
+	        Circle circle3 = new Circle(15);
+
+	        // Daireleri bir dizi içinde sakla (döngüde daha kolay erişim için)
+	        Circle[] circles = { circle1, circle2, circle3 };
+
+	        // Foreach döngüsü kullanarak alanları yazdır
+	        for (Circle circle : circles) {
+	            System.out.println("Circle with radius " + circle.radius + " has area: " + circle.computeArea());
+	        }
+	    }
+	    
+	}
