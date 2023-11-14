@@ -1,4 +1,4 @@
-ikiboyutludiziler.java 12 Kasım 2023 Pazar 21:43
+
 1 package etkinlik6;
 2
 3 public class ikiboyutludiziler {
