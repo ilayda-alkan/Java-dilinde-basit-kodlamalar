@@ -1,0 +1,80 @@
+import java.util.Scanner;
+
+public class Account {
+
+	    private double balance;   //bakiye
+	    private String ownerName;  // Hesap Sahibinin adı
+	    private String password;   //şifre
+	    private int attempts;      //sifre deneme sayısı
+
+	    
+	    public Account(String ownerName, double balance) {
+	        this.ownerName = ownerName;
+	        this.balance = balance;
+	        this.password = "1234"; // Varsayılan şifre
+	        this.attempts = 0;      // Şifre deneme sayısını sıfırlar
+	    }
+
+	  
+	    public void add(double amount) {
+	        balance += amount;
+	        System.out.println(" Miktar basarıyla eklendi. yeni tutar:" + balance);
+	    }
+
+	    public void withdraw(double amount) {
+	        Scanner scanner = new Scanner(System.in);
+
+	        
+	        if (attempts >= 3) {
+	            System.out.println("Hesabınız bloke edilmiştir. Lütfen daha sonra tekrar deneyiniz.");
+	            scanner.close();
+	            return;
+	        }
+
+	    
+	        System.out.print("Lütfen 4 haneli şifrenizi giriniz: ");
+	        String enteredPassword = scanner.next();
+
+	       // Sifreyi kontrol eder
+	        if (enteredPassword.equals(password)) {
+	           
+	        	// sifre doğruysa para çekme işlemine devam eder.
+	            if (balance >= amount) {
+	                balance -= amount;
+	                System.out.println("Para çekme işlemi başarılı. Yeni Bakiye: " + balance);
+	            } else {
+	                System.out.println("Yetersiz bakiye. Para çekme işlemi başarısız");
+	            }
+	        } else {
+	           
+	        	// Şifre yanlşsa
+	            attempts++;
+	            System.out.println("Yanlış Şifre. Kalan deneme hakkınız: " + (3 - attempts)); 
+
+	            // Tekrar şifre denemek için rekürsif fonksiyonu çağır
+	            withdraw(amount);
+	        }
+
+	        scanner.close();
+	    }
+
+	    public double getBalance() {
+	        return balance;
+	    }
+
+	    public void setOwnerName(String name) {
+	        ownerName = name;
+	    }
+
+	    public String getOwnerName() {
+	        return ownerName;
+	    }
+
+	    public static void main(String[] args) {
+	       
+	        Account myAccount = new Account("Ayse Soykan", 1000.0);
+
+	        
+	        myAccount.withdraw(200.0);
+	    }
+	}
