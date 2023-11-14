@@ -1,0 +1,63 @@
+package etkinlik9;
+import java.util.Scanner;
+
+public class Worker {
+	
+    private String name;
+    private int socialSecurityNumber;
+    private float wage;
+    private int workingHours;
+	
+    public Worker(String name, int socialSecurityNumber, float wage, int workingHours) {
+        this.name = name;
+        this.socialSecurityNumber = socialSecurityNumber;
+        this.wage = wage;
+        this.workingHours = workingHours;
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Social Security Number: " + socialSecurityNumber);
+    }
+
+    public void displaySalary() {
+        float salary = wage * workingHours;
+        System.out.println("Salary: " + salary);
+    }
+
+    public static void main(String[] args) {
+        
+        Worker worker1 = new Worker("Ahmet Kaya", 123456789, 10.5f, 50);
+
+       
+        System.out.println("Worker 1 Information:");
+        worker1.displayInfo();
+        worker1.displaySalary();
+
+        
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\nEnter Worker 2 Information:");
+
+        System.out.print("Enter Name: ");
+        String name2 = scanner.nextLine();
+
+        System.out.print("Enter Social Security Number: ");
+        int socialsn2 = scanner.nextInt();
+
+        System.out.print("Enter Wage: ");
+        float wage2 = scanner.nextFloat();
+
+        System.out.print("Enter Working Hours: ");
+        int hours2 = scanner.nextInt();
+
+        Worker worker2 = new Worker(name2, socialsn2, wage2, hours2);
+
+        
+        System.out.println("\nWorker 2 Information:");
+        worker2.displayInfo();
+        worker2.displaySalary();
+        
+      
+    }
+}
