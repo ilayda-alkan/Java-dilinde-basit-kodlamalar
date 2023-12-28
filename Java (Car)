@@ -1,0 +1,76 @@
+public class Main {
+
+	public static void main(String[] args) {
+		
+		Car car1 = new Car( "Gümüş" , "Opel" , 1.6 , 4);
+		Car car2 = new Car();
+		
+		car1.showInfos();
+		car2.showInfos(); //overloading
+
+	}
+
+}
+public class Car {
+	private String color;
+	private String model;
+	private double engine;
+	private int doors;
+	private String boş;
+
+	
+	  Car (){  //OVERLOADİNG
+		this.color = boş ;
+		this.engine = 0;
+		this.model =  boş;
+		this.doors = 0;
+		
+	}
+	
+	 Car (String color, String model, double engine , int doors){  //Constructer
+		this.color = color;
+		this.engine = engine;
+		this.model = model;
+		this.doors = doors;
+	}
+	public  void setColor(String color) {
+		this.color = color;
+	}
+	
+	public String getColor() {
+		return this.color;
+	}
+	
+	public void setModel(String model) {
+		this.model = model;
+	}
+	public String getModel() {
+		return this.model;
+	}
+	
+	public void setEngine(double engine ) {
+		this.engine = engine;
+	}
+	public double getEngine() {
+		return this.engine;
+	}
+	
+	public void setDoors(int doors) {
+		if(doors == 2 || doors == 4)
+			this.doors = doors;
+		else
+			System.out.println("Kapı Sayısı Sadece 2 veya 4 Olabilir ");
+	}
+	
+	public int getDoors() {
+		return this.doors;
+	}
+	
+	public void showInfos() {
+		System.out.println("Arabanın Rengi : " + this.color);
+		System.out.println("Arabanın Modeli : " + this.model);
+		System.out.println("Arabanın Motoru : " + this.engine);
+		System.out.println("Arabanın Kapı Sayısı : " + this.doors);
+
+	}
+}
